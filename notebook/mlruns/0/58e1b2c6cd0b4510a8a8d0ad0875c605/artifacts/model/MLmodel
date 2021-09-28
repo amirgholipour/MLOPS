@@ -1,0 +1,16 @@
+artifact_path: model
+flavors:
+  python_function:
+    env: conda.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    python_version: 3.8.3
+  sklearn:
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 0.24.2
+run_id: 58e1b2c6cd0b4510a8a8d0ad0875c605
+signature:
+  inputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1, 2]}}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+utc_time_created: '2021-09-28 02:20:06.839177'

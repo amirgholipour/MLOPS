@@ -1,0 +1,15 @@
+artifact_uri: file:///opt/app-root/src/MLOPS/notebook/mlruns/0/58e1b2c6cd0b4510a8a8d0ad0875c605/artifacts
+end_time: 1632795608814
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 58e1b2c6cd0b4510a8a8d0ad0875c605
+run_uuid: 58e1b2c6cd0b4510a8a8d0ad0875c605
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1632795606819
+status: 3
+tags: []
+user_id: '1000760000'
