@@ -20,14 +20,16 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-buffer-size: "8k"
 
 spec:
-  host: null
-  subdomain: ''
   to:
     kind: Service
     name: mlflow
     weight: 100
   port:
-    number: 5000
+    targetPort: 5000
+  # tls:
+  #   termination: edge
+  #   insecureEdgeTerminationPolicy: None
+  wildcardPolicy: None
   # path: /
   # pathType: ImplementationSpecific      
 
