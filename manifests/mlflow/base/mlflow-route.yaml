@@ -28,8 +28,8 @@ spec:
     weight: 100
   port:
     number: 5000
-  path: /
-  pathType: ImplementationSpecific      
+  # path: /
+  # pathType: ImplementationSpecific      
 
 # spec:
 #   tls:
