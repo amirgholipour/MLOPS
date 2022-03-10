@@ -6,19 +6,15 @@ metadata:
   annotations:
     serviceaccounts.openshift.io/oauth-redirectreference.primary: '{"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"mlflow"}}'
 
-
-
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+kind: Route
+apiVersion: route.openshift.io/v1
 metadata:
-  name: mlflow
-  labels:
-    app.kubernetes.io/name: mlflow
   annotations:
     openshift.io/host.generated: 'true'
-    nginx.ingress.kubernetes.io/proxy-buffer-size: "8k"
-
+  name: mlflow
+  labels:
+    app: mlflow
 spec:
   to:
     kind: Service
@@ -30,8 +26,32 @@ spec:
   #   termination: edge
   #   insecureEdgeTerminationPolicy: None
   wildcardPolicy: None
-  # path: /
-  # pathType: ImplementationSpecific      
+
+
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: mlflow
+#   labels:
+#     app.kubernetes.io/name: mlflow
+#   annotations:
+#     openshift.io/host.generated: 'true'
+#     nginx.ingress.kubernetes.io/proxy-buffer-size: "8k"
+
+# spec:
+#   to:
+#     kind: Service
+#     name: mlflow
+#     weight: 100
+#   port:
+#     targetPort: 5000
+#   # tls:
+#   #   termination: edge
+#   #   insecureEdgeTerminationPolicy: None
+#   wildcardPolicy: None
+#   # path: /
+#   # pathType: ImplementationSpecific      
 
 # spec:
 #   tls:
