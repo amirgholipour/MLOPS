@@ -20,22 +20,33 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-buffer-size: "8k"
 
 spec:
-  tls:
-    - hosts:
-      - $(MLFLOW_HOST)
+  host: null
+  subdomain: ''
+  to:
+    kind: Service
+    name: mlflow
+    weight: 100
+  port:
+    number: 5000
+  path: /
+  pathType: ImplementationSpecific      
 
-  rules:
-  - host: $(MLFLOW_HOST)
-    http:
-      paths:
-      - backend:
-          service:
-            name: mlflow
-            port:
-              number: 5000
-        path: /
-        pathType: ImplementationSpecific      
+# spec:
+#   tls:
+#     - hosts:
+#       - $(MLFLOW_HOST)
 
+#   rules:
+#   - host: $(MLFLOW_HOST)
+#     http:
+#       paths:
+#       - backend:
+#           service:
+#             name: mlflow
+#             port:
+#               number: 5000
+#         path: /
+#         pathType: ImplementationSpecific      
 
 
 # ---
